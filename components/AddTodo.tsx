@@ -55,7 +55,6 @@ const AddTodo = () => {
   if (data?.length) {
     console.log(data);
   }
-
   const onRemoveTodo = (id: any) => {
     dispatch({ type: "REMOVE", id: id });
   };

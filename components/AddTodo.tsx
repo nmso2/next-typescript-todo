@@ -49,7 +49,7 @@ const AddTodo = () => {
   }, [todos]);
 
   useEffect(() => {
-    setData(JSON.parse(localStorage.getItem("todos")));
+    setData(JSON.parse(localStorage.getItem("todos") || "{}"));
   }, [todos]);
 
   if (data?.length) {

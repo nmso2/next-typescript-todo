@@ -1,7 +1,6 @@
 import { Box, Button, TextField } from "@mui/material";
 import { useCallback, useEffect, useReducer, useRef, useState } from "react";
 import TodoList from "./TodoList";
-
 interface Todo {
   id: number;
   text: string;
@@ -29,6 +28,7 @@ const AddTodo = () => {
   }, []);
 
   console.log(todos);
+  //   console.log(JSON.parse(localStorage.getItem("todos")));
 
   const newTodoRef = useRef<HTMLInputElement>(null);
 

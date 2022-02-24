@@ -11,7 +11,7 @@ type ActionType =
   | { type: "REMOVE"; id: number };
 
 const AddTodo = () => {
-  const [myState, setMyState] = useState<Todo>();
+  const [data, setData] = useState<Todo>();
   const [todos, dispatch] = useReducer((state: Todo[], action: ActionType) => {
     switch (action.type) {
       case "ADD":
@@ -34,12 +34,10 @@ const AddTodo = () => {
 
   const onAddTodo = useCallback(() => {
     if (newTodoRef.current) {
-      console.log(newTodoRef.current.value);
       dispatch({
         type: "ADD",
         text: newTodoRef.current.value,
       });
-      console.log(todos);
       newTodoRef.current.value = "";
     }
   }, []);
@@ -49,6 +47,14 @@ const AddTodo = () => {
       localStorage.setItem("todos", JSON.stringify(todos));
     }
   }, [todos]);
+
+  useEffect(() => {
+    setData(JSON.parse(localStorage.getItem("todos")));
+  }, [todos]);
+
+  if (data?.length) {
+    console.log(data);
+  }
 
   const onRemoveTodo = (id: any) => {
     dispatch({ type: "REMOVE", id: id });

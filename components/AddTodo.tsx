@@ -11,7 +11,7 @@ type ActionType =
   | { type: "REMOVE"; id: number };
 
 const AddTodo = () => {
-  const [data, setData] = useState<Todo>();
+  const [data, setData] = useState<any>();
   const [todos, dispatch] = useReducer((state: Todo[], action: ActionType) => {
     switch (action.type) {
       case "ADD":

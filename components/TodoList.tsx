@@ -40,7 +40,7 @@ const TodoList = ({
         </Typography>
         <Divider />
         <List sx={{ pb: "40px" }}>
-          {items?.map((item: Object, index: any) => (
+          {items?.map((item: any, index: any) => (
             <>
               <ListItem
                 key={index}
